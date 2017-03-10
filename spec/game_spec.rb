@@ -1,8 +1,7 @@
 require 'game'
 
 describe Game do
-
-  let(:game){described_class.new}
+  let(:game) { described_class.new }
 
   describe '#initialize' do
     it 'initializes with a new gameboard' do
@@ -14,7 +13,6 @@ describe Game do
     end
     it 'the first turn can be player1 or player2' do
       expect([1, 2]).to include(game.turn)
-
     end
   end
 
@@ -70,5 +68,4 @@ describe Game do
       expect(game.check_outcome).to eq 'It\'s a draw!'
     end
   end
-
 end
