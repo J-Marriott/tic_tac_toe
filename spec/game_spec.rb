@@ -37,4 +37,38 @@ describe Game do
     end
   end
 
+  describe '#outcome' do
+    it 'player 1 can win' do
+      game.instance_variable_set(:@turn, 1)
+      game.picksquare(5)
+      game.picksquare(4)
+      game.picksquare(2)
+      game.picksquare(1)
+      game.picksquare(8)
+      expect(game.outcome).to eq 'Player 1 wins!'
+    end
+    it 'player 1 can win' do
+      game.instance_variable_set(:@turn, 2)
+      game.picksquare(5)
+      game.picksquare(4)
+      game.picksquare(2)
+      game.picksquare(1)
+      game.picksquare(8)
+      expect(game.outcome).to eq 'Player 2 wins!'
+    end
+    it 'can be a draw' do
+      game.instance_variable_set(:@turn, 2)
+      game.picksquare(1)
+      game.picksquare(2)
+      game.picksquare(3)
+      game.picksquare(4)
+      game.picksquare(5)
+      game.picksquare(6)
+      game.picksquare(7)
+      game.picksquare(8)
+      game.picksquare(9)
+      expect(game.outcome).to eq 'It\'s a draw!'
+    end
+  end
+
 end
